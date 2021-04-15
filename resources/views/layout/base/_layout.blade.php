@@ -1,4 +1,4 @@
-@if(config('layout.self.layout') == 'blank')
+@if(config('layout.self.layout') == 'blank' || (Request::is('letter')))
     <div class="d-flex flex-column flex-root">
         @yield('content')
     </div>
@@ -37,7 +37,7 @@
 
 @endif
 
-@if (config('layout.self.layout') != 'blank')
+@if (config('layout.self.layout') != 'blank' && !(Request::is('letter')))
 
     @if (config('layout.extras.search.layout') == 'offcanvas')
         @include('layout.partials.extras.offcanvas._quick-search')

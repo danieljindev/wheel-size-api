@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/v1/web/getCategories', 'CategoryController@getCategories');
+Route::post('/v1/web/update/{category}', 'CategoryController@update');
+Route::post('/v1/web/new/{parent}', 'CategoryController@new');
+Route::get('/v1/web/destroy/{category}', 'CategoryController@destroy');

@@ -1,6 +1,30 @@
 {{-- Topbar --}}
 <div class="topbar">
+    @guest
+        @if (Route::has('login'))
+            <a class="nav-link topbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+        @endif
+        
+        @if (Route::has('register'))
+            <a class="nav-link topbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+        @endif
+    @else
+        <!-- <a id="navbarDropdown" class="nav-link topbar-item dropdown-toggle text-right" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }}
+        </a>
 
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </div> -->
+    @endguest
     {{-- Search --}}
     @if (config('layout.extras.search.display'))
         @if (config('layout.extras.search.layout') == 'offcanvas')
@@ -124,12 +148,12 @@
     @endif
 
     {{-- User --}}
-    @if (config('layout.extras.user.display'))
+    @if (config('layout.extras.user.display') && Auth::check())
         @if (config('layout.extras.user.layout') == 'offcanvas')
             <div class="topbar-item">
                 <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
                     <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                    <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Sean</span>
+                    <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{ Auth::user()->name }}</span>
                     <span class="symbol symbol-35 symbol-light-success">
                         <span class="symbol-label font-size-h5 font-weight-bold">S</span>
                     </span>
@@ -141,7 +165,7 @@
                 <div class="topbar-item" data-toggle="dropdown" data-offset="0px,0px">
                     <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2">
                         <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                        <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Sean</span>
+                        <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{ Auth::user()->name }}</span>
                         <span class="symbol symbol-35 symbol-light-success">
                             <span class="symbol-label font-size-h5 font-weight-bold">S</span>
                         </span>

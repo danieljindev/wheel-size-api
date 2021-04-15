@@ -24,7 +24,7 @@
             </div>
             <div class="d-flex flex-column">
                 <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
-					James Jones
+					{{ Auth::user() ? Auth::user()->name : '' }}
 				</a>
                 <div class="text-muted mt-1">
                     Application Developer
@@ -35,7 +35,7 @@
                             <span class="navi-icon mr-1">
 								{{ Metronic::getSVG("media/svg/icons/Communication/Mail-notification.svg", "svg-icon-lg svg-icon-primary") }}
 							</span>
-                            <span class="navi-text text-muted text-hover-primary">jm@softplus.com</span>
+                            <span class="navi-text text-muted text-hover-primary">{{ Auth::user() ? Auth::user()->email: '' }}</span>
                         </span>
                     </a>
                 </div>
@@ -123,11 +123,31 @@
 		            </div>
 		        </div>
 		    </a>
+
+		    {{-- Item --}}
+			
+		    <a href="{{ route('logout') }}" class="navi-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+					@csrf
+				</form>
+		        <div class="navi-link">
+					<div class="symbol symbol-40 bg-light mr-3">
+						<div class="symbol-label">
+							{{ Metronic::getSVG("media/svg/icons/Communication/Mail-opened.svg", "svg-icon-md svg-icon-primary") }}
+						</div>
+				   	</div>
+		            <div class="navi-text">
+		                <div class="font-weight-bold">
+							{{ __('Logout') }}
+		                </div>
+		            </div>
+		        </div>
+		    </a>
 		</div>
 
 		{{-- Separator --}}
 		<div class="separator separator-dashed my-7"></div>
-
+		<?php /* 
 		{{-- Notifications --}}
 		<div>
 			{{-- Heading --}}
@@ -187,7 +207,8 @@
 	            </div>
 
 	            <span class="font-weight-bolder text-info py-1 font-size-lg">+8%</span>
-	        </div>
+			</div>--}}
+			*/ ?>
 		</div>
     </div>
 </div>

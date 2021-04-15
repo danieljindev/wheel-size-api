@@ -77,7 +77,7 @@ return [
     'header' => [
         'self' => [
             'display' => true,
-            'width' => 'fluid', // fixed, fluid
+            'width' => 'fixed', // fixed, fluid
             'theme' => 'light', // light, dark
             'fixed' => [
                 'desktop' => true,
@@ -112,7 +112,7 @@ return [
 
     // Subheader
     'subheader' => [
-        'display' => true,
+        'display' => false,
         'displayDesc' => true,
         'layout' => 'subheader-v1',
         'fixed' => true,
@@ -136,7 +136,7 @@ return [
     // Brand
     'brand' => [
         'self' => [
-            'theme' => 'dark' // light, dark
+            'theme' => 'light' // light, dark
         ]
     ],
 
@@ -144,7 +144,7 @@ return [
     'aside' => [
         'self' => [
             'theme' => 'dark', // light, dark
-            'display' => true,
+            'display' => false,
             'fixed' => true,
             'minimize' => [
                 'toggle' => true, // allow toggle
@@ -227,7 +227,7 @@ return [
 
         // Cart
         'cart' => [
-            'display' => true,
+            'display' => false,
             'dropdown' => [
                 'style' => 'dark' // light|dark
             ]
@@ -248,7 +248,7 @@ return [
 
         // Page Toolbar
         'toolbar' => [
-            'display' => true
+            'display' => false
         ],
 
         // Scrolltop

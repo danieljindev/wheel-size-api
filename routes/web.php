@@ -30,3 +30,7 @@ Route::get('/icons/svg', 'PagesController@svg');
 
 // Quick search dummy route to display html elements in search dropdown (header search)
 Route::get('/quick-search', 'PagesController@quickSearch')->name('quick-search');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

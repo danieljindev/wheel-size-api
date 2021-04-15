@@ -10,7 +10,7 @@
             @endphp
 
             @if (config('layout.header.self.theme') === 'light')
-                @php $kt_logo_image = 'logo-dark.png' @endphp
+                @php $kt_logo_image = 'logo-black.png' @endphp
             @elseif (config('layout.header.self.theme') === 'dark')
                 @php $kt_logo_image = 'logo-light.png' @endphp
             @endif
@@ -20,7 +20,7 @@
                 @if(config('layout.aside.self.display') == false)
                     <div class="header-logo">
                         <a href="{{ url('/') }}">
-                            <img alt="Logo" src="{{ asset('media/logos/'.$kt_logo_image) }}"/>
+                            <img alt="Logo" src="{{ asset('media/logos/'.$kt_logo_image) }}" height="37" />
                         </a>
                     </div>
                 @endif

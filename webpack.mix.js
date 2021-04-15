@@ -30,15 +30,15 @@ mix.js('resources/js/app.js', 'public/js')
 // 3rd party plugins css/js
 mix.sass('resources/plugins/plugins.scss', 'public/plugins/global/plugins.bundle.css').then(() => {
     // remove unused preprocessed fonts folder
-    rimraf(path.resolve('public/fonts'), () => {});
-    rimraf(path.resolve('public/images'), () => {});
+    rimraf(path.resolve('public/fonts'), () => { });
+    rimraf(path.resolve('public/images'), () => { });
 }).sourceMaps(!mix.inProduction())
     // .setResourceRoot('./')
-    .options({processCssUrls: false}).js(['resources/plugins/plugins.js'], 'public/plugins/global/plugins.bundle.js');
+    .options({ processCssUrls: false }).js(['resources/plugins/plugins.js'], 'public/plugins/global/plugins.bundle.js');
 
 // Metronic css/js
 mix.sass('resources/metronic/sass/style.scss', 'public/css/style.bundle.css', {
-    sassOptions: {includePaths: ['node_modules']},
+    sassOptions: { includePaths: ['node_modules'] },
 })
     // .options({processCssUrls: false})
     .js('resources/js/scripts.js', 'public/js/scripts.bundle.js');

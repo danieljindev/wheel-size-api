@@ -50,7 +50,10 @@ License: You must have a valid license purchased only from themeforest(the above
 
         @include('layout.base._layout')
 
-        <script>var HOST_URL = "{{ route('quick-search') }}";</script>
+        <script>
+            var HOST_URL = "{{url('/')}}";
+            var API_URL = "{{url('/api/v1/web')}}";
+        </script>
 
         {{-- Global Config (global config for global JS scripts) --}}
         <script>
