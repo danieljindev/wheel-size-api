@@ -181,6 +181,7 @@
     "/js/pages/my-script.js": "/js/pages/my-script.js",
     "/js/pages/widgets.js": "/js/pages/widgets.js",
     "/js/scripts.bundle.js": "/js/scripts.bundle.js",
+    "/js/wheel-size-api.js": "/js/wheel-size-api.js",
     "/plugins/custom/ckeditor/ckeditor-balloon-block.bundle.js": "/plugins/custom/ckeditor/ckeditor-balloon-block.bundle.js",
     "/plugins/custom/ckeditor/ckeditor-balloon.bundle.js": "/plugins/custom/ckeditor/ckeditor-balloon.bundle.js",
     "/plugins/custom/ckeditor/ckeditor-classic.bundle.js": "/plugins/custom/ckeditor/ckeditor-classic.bundle.js",

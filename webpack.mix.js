@@ -165,3 +165,6 @@ mix.styles([
     'node_modules/datatables.net-scroller-bs4/css/scroller.bootstrap4.min.css',
     'node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css',
 ], 'public/plugins/custom/datatables/datatables.bundle.css');
+
+// Default
+mix.js('resources/js/wheel-size-api.js', 'public/js');
