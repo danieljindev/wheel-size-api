@@ -25,7 +25,8 @@
 
             @endif
 
-            <img alt="{{ config('app.name') }}" src="{{ asset('media/logos/'.$kt_logo_image) }}" height="37" />
+            {{-- <img alt="{{ config('app.name') }}" src="{{ asset('media/logos/'.$kt_logo_image) }}" height="37" /> --}}
+            <h2 style="margin-bottom: 0;">Wheel Size API</h2>
         </a>
     </div>
     <div class="d-flex align-items-center">

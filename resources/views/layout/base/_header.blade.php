@@ -20,7 +20,8 @@
                 @if(config('layout.aside.self.display') == false)
                     <div class="header-logo">
                         <a href="{{ url('/') }}">
-                            <img alt="Logo" src="{{ asset('media/logos/'.$kt_logo_image) }}" height="37" />
+                            {{-- <img alt="Logo" src="{{ asset('media/logos/'.$kt_logo_image) }}" height="37" /> --}}
+                            <h1 style="margin-bottom: 0;">Wheel Size API</h1>
                         </a>
                     </div>
                 @endif
