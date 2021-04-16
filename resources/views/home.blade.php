@@ -24,9 +24,9 @@
 
                     <div class="row">
                         <div class="col-md-4 col-sm-8 col-xs-8">
-                            <button type="button" class="btn btn-success btn-sm" onclick="demo_create();">Create</button>
-                            <button type="button" class="btn btn-warning btn-sm" onclick="demo_rename();">Rename</button>
-                            <button type="button" class="btn btn-danger btn-sm" onclick="demo_delete();">Delete</button>
+                            <button type="button" class="btn btn-success btn-sm" onclick="node_create();">Create</button>
+                            <button type="button" class="btn btn-warning btn-sm" onclick="node_rename();">Rename</button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="node_delete();">Delete</button>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-4" style="text-align:right;">
                             <input type="text" value="" style="box-shadow:inset 0 0 4px #eee; width:120px; margin:0; padding:6px 12px; border-radius:4px; border:1px solid silver; font-size:1.1em;" id="search_box" placeholder="Search">
@@ -52,7 +52,7 @@
     <script src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/plugins/custom/jstree/jstree.bundle.js?v=7.2.6"></script>
     <script>
         
-        function demo_create() {
+        function node_create() {
             var ref = $('#category_tree').jstree(true),
                 sel = ref.get_selected();
 
@@ -90,7 +90,7 @@
 
         };
 
-        function demo_rename() {
+        function node_rename() {
             var ref = $('#category_tree').jstree(true),
                 sel = ref.get_selected();
             if(!sel.length) { return false; }
@@ -98,7 +98,7 @@
             update_node(ref, sel);
         };
 
-        function demo_delete() {
+        function node_delete() {
             var ref = $('#category_tree').jstree(true),
                 sel = ref.get_selected();
             if(!sel.length) { return false; }
@@ -202,12 +202,33 @@
                 "state": {
                     "key": "demo1"
                 },
-                "plugins" : [ "contextmenu", "search", "state", "types", "wholerow" ]
+                "plugins" : [ "contextmenu", "search", "state", "types", "wholerow" ],
+                "contextmenu": {
+                    "items": function( $node ) {
+                        return {
+                            "Create": {
+                                "label": "Create",
+                                "action": function( obj ) {
+                                    node_create();
+                                }
+                            },
+                            "Rename": {
+                                "label": "Rename",
+                                "action": function( obj ) {
+                                    node_rename();
+                                }
+                            },
+                            "Delete": {
+                                "label": "Delete",
+                                "action": function( obj ) {
+                                    node_delete();
+                                }
+                            }
+                        };
+                    }
+                }
             }).bind("dblclick.jstree", function (event) {
-                //Double Click to Rename
-                //jQuery("#surveyManager").jstree("rename");
-                demo_rename();
-                // jQuery.trigger("rename.jstree");
+                node_rename();
             });
         });		
  
